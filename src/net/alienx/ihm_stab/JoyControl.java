@@ -3,9 +3,6 @@ package net.alienx.ihm_stab;
 import java.io.IOException;
 import java.util.Vector;
 
-import net.alienx.ihm_stab.protocol.ProtocolListener;
-import net.alienx.ihm_stab.protocol.ProtocolMessage;
-
 import com.centralnexus.input.Joystick;
 import com.centralnexus.input.JoystickListener;
 

@@ -23,6 +23,7 @@ import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 
 import net.alienx.ihm_stab.IHMPanel;
+import net.alienx.ihm_stab.Config;
 import net.alienx.ihm_stab.JoyControl;
 import net.alienx.ihm_stab.JoyControlListener;
 import net.alienx.ihm_stab.Utils;
@@ -68,7 +69,7 @@ public class UIControl extends IHMPanel
 	@Override
 	protected void drawUI() {
 		this.setLayout(new BorderLayout());
-		
+		Color bgColor = getConfig().getColor(Config.NODE_UI,"background_color", Color.DARK_GRAY);
 		
 		JPanel pHead = new JPanel();
 		pHead.setLayout(new GridBagLayout());
@@ -241,22 +242,22 @@ public class UIControl extends IHMPanel
 		JPanel pAngle = new JPanel();
 		//addBorder(pAngle,"Angle");
 		pAngle.setLayout(new FlowLayout(FlowLayout.LEFT));
-		pAngle.setBackground(Color.black);
+		pAngle.setBackground(bgColor);
 		Dimension gSize = new Dimension(80,80);
 		gACC = new Gauge[3];
-		gACC[0] = new Gauge("ACC X",-180,180,gSize);
+		gACC[0] = new Gauge("ACC X",-180,180,gSize,bgColor);
 		pAngle.add(gACC[0]);
-		gACC[1] = new Gauge("ACC Y",-180,180,gSize);
+		gACC[1] = new Gauge("ACC Y",-180,180,gSize,bgColor);
 		pAngle.add(gACC[1]);
-		gACC[2] = new Gauge("ACC Z",0,1024,gSize);
+		gACC[2] = new Gauge("ACC Z",0,1024,gSize,bgColor);
 		pAngle.add(gACC[2]);
 		
 		gGYR = new Gauge[3];
-		gGYR[0] = new Gauge("GYR X",-90,90,gSize);
+		gGYR[0] = new Gauge("GYR X",-90,90,gSize,bgColor);
 		pAngle.add(gGYR[0]);
-		gGYR[1] = new Gauge("GYR Y",-90,90,gSize);
+		gGYR[1] = new Gauge("GYR Y",-90,90,gSize,bgColor);
 		pAngle.add(gGYR[1]);
-		gGYR[2] = new Gauge("GYR Z",-90,90,gSize);
+		gGYR[2] = new Gauge("GYR Z",-90,90,gSize,bgColor);
 		pAngle.add(gGYR[2]);
 		
 		gdb2.gridy =0;
@@ -270,20 +271,20 @@ public class UIControl extends IHMPanel
 		
 		JPanel pCenter = new JPanel();
 		pCenter.setLayout(new FlowLayout(FlowLayout.CENTER));
-		pCenter.setBackground(Color.black);
+		pCenter.setBackground(bgColor);
 		tCoordinator = new TurnCoordinator();
 		pCenter.add(tCoordinator);
 		
-		gRoll = new Gauge("ROLL",-90,90);
+		gRoll = new Gauge("ROLL",-90,90,bgColor);
 		pCenter.add(gRoll);
 
-		gPitch = new Gauge("PITCH",-90,90);
+		gPitch = new Gauge("PITCH",-90,90,bgColor);
 		pCenter.add(gPitch);
 		
-		gYaw = new Gauge("YAW",-90,90);
+		gYaw = new Gauge("YAW",-90,90,bgColor);
 		pCenter.add(gYaw);
 		
-		m_horizon = new Horizon();
+		m_horizon = new Horizon(bgColor);
 		pCenter.add(m_horizon);
 		
 		//mlf = new MotorSpeed();

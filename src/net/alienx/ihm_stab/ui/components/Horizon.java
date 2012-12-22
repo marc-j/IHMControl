@@ -25,9 +25,15 @@ public class Horizon extends Canvas {
 	private Font font = new Font("Verdana",0,10);
 	private double pitch = 0;
 	private double roll = 0;
+	private Color bgColor = Color.black;
 	
 	public Horizon(){
 		bg = ImageUtils.getImagesAlpha("./images/HorizonBG.png", Color.red);
+	}
+	
+	public Horizon(Color bgColor){
+		bg = ImageUtils.getImagesAlpha("./images/HorizonBG.png", Color.red);
+		this.bgColor = bgColor;
 	}
 	
 	public void paint(Graphics g){
@@ -36,6 +42,9 @@ public class Horizon extends Canvas {
 		
 		image = new BufferedImage(bg.getWidth(),(90*4)*2,BufferedImage.TYPE_INT_ARGB);
 		buffer1 = (Graphics2D) image.getGraphics();
+		
+		/*buffer1.setColor(bgColor);
+		buffer1.fillRect(0, 0, bg.getWidth(), bg.getWidth());*/
 		
 		horizon = new BufferedImage(bg.getWidth(),(90*4)*2,BufferedImage.TYPE_INT_RGB);
 		buffer = (Graphics2D) horizon.getGraphics();

@@ -93,6 +93,7 @@ public class IhmStab extends JFrame
 		int height = (int) (dim.getHeight()-(dim.getWidth()*10/100));
 		this.setSize(width,height);
 		Protocol.setPort("/dev/ttyUSB0");
+		Config.init();
 		
 		drawUI();
 		this.setVisible(true);

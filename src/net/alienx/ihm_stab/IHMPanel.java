@@ -20,7 +20,6 @@ abstract public class IHMPanel extends JPanel {
 	/**
 	 * Abstract methode draw UI
 	 */
-	
 	abstract protected void init();
 	
 	
@@ -41,5 +40,10 @@ abstract public class IHMPanel extends JPanel {
 		p.setBorder(BorderFactory.createCompoundBorder(
                 BorderFactory.createTitledBorder(title),
                 BorderFactory.createEmptyBorder(5,5,5,5)));
+	}
+	
+	protected Config getConfig()
+	{
+		return Config.getInstance();
 	}
 }

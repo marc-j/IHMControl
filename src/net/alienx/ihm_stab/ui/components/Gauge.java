@@ -65,6 +65,16 @@ public class Gauge extends Canvas {
 		_height = (int) size.getHeight();
 	}
 	
+	public Gauge(String title, float min, float max, Dimension size, Color bgcolor){
+		_min = min;
+		_max = max;
+		_value = 0.0f;
+		_title = title;
+		_width = (int) size.getWidth();
+		_height = (int) size.getHeight();
+		_bgColor = bgcolor;
+	}
+	
 	private void createBackground(){
 		buffer.setColor(_bgColor);
 		buffer.fillRect(0,0,_width,_height);
